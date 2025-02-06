@@ -10,12 +10,12 @@ let person2 = person;
 
 person.firstName = 'Arya';
 
-console.log(person2.firstName); // output
-console.log(person.firstName); // output
-console.log(person.lastName); // output
-console.log(person == person2); // output
-console.log(person === person2); // output
-console.log(person.lastName === person2.lastName); // output
+console.log(person2.firstName); // output Arya, person2 and person are pointing to the same address.
+console.log(person.firstName); // output Arya, ''
+console.log(person.lastName); // output Doe, ''
+console.log(person == person2); // output true. ''
+console.log(person === person2); // output true ''
+console.log(person.lastName === person2.lastName); // output true ''
 ```
 
 2. Write the output with reason:
@@ -37,17 +37,17 @@ let personTwo = { ...person };
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // output
-console.log(person.firstName); // output
-console.log(personTwo.lastName); // output
-console.log(person.firstName === personTwo.firstName); // output
-console.log(person == personTwo); // output
-console.log(person === personTwo); // output
-console.log(person.address === personTwo.address); // output
-console.log(person.address == personTwo.address); // output
-console.log(personTwo.address.city); // output
-console.log(person.address.city); // output
-console.log(person.address.city == personTwo.address.city); // output
+console.log(personTwo.firstName); // output John, it was cloned, it doesnt have th same address as person. So it retained the original values John.
+console.log(person.firstName); // output Arya. it was updated
+console.log(personTwo.lastName); // output Doe. retained original values, has the old address
+console.log(person.firstName === personTwo.firstName); // output False, they are pointing to different address and are of different values.
+console.log(person == personTwo); // output false, they are pointed to different addresses 
+console.log(person === personTwo); // output false, ''
+console.log(person.address === personTwo.address); // output true, they are same values
+console.log(person.address == personTwo.address); // output true, ''
+console.log(personTwo.address.city); // output 'San Jose'
+console.log(person.address.city); // output  'San Jose'
+console.log(person.address.city == personTwo.address.city); // output true, they are the same value
 ```
 
 3. Write the output with reason:
@@ -69,17 +69,17 @@ let personTwo = { ...person, address: { ...person.address } };
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // output
-console.log(person.firstName); // output
-console.log(personTwo.lastName); // output
-console.log(person.firstName === personTwo.firstName); // output
-console.log(person == personTwo); // output
-console.log(person === personTwo); // output
-console.log(person.address === personTwo.address); // output
-console.log(person.address == personTwo.address); // output
-console.log(personTwo.address.city); // output
-console.log(person.address.city); // output
-console.log(person.address.city == personTwo.address.city); // output
+console.log(personTwo.firstName); // output John, same value after cloning.
+console.log(person.firstName); // output Arya, it was updated
+console.log(personTwo.lastName); // output Dow, it was cloned there. 
+console.log(person.firstName === personTwo.firstName); // output False, They are different values
+console.log(person == personTwo); // output , False, they are pointing to different addresses
+console.log(person === personTwo); // output , False, ''
+console.log(person.address === personTwo.address); // output false, even the pointing to a different address
+console.log(person.address == personTwo.address); // output false, ''
+console.log(personTwo.address.city); // output San Jose, cloned from original value
+console.log(person.address.city); // output San Jose, still has original value
+console.log(person.address.city == personTwo.address.city); // output true, same value
 ```
 
 4. Clone the `blogs` variable into a new variable named `clonedBlogs`
@@ -105,6 +105,7 @@ let blogs = [
 
 // Your code goes here
 ```
+let clonedBlogs=[...blogs, ...blogs[0]]
 
 5. Clone the `question` variable into a new variable named `questionClone`
 
@@ -130,6 +131,7 @@ var questions = [
 
 // Your code goes here
 ```
+let questionClone=[...questions]
 
 6. Clone the `allBlogs` variable into a new variable named `allBlogsClone`
 
@@ -157,6 +159,8 @@ var allBlogs = {
 
 // Your code goes here
 ```
+
+let allBlogsClone={... allBlogs}
 
 7. Clone the `person` variable into a new variable named `clonedPerson`
 
@@ -190,12 +194,16 @@ let person = [
 
 // Your code goes here
 ```
+let clonedPerson=[...person]
 
 8. Write a function named `cloneObject` that accepts an object and returns the clone of the object
 
 ```js
-function cloneObject() {
+function cloneObject(obj) {
   // your code
+  let clone={...obj}
+  return clone
+
 }
 
 // Run the test below to check your function
